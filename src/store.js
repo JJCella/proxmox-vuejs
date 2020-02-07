@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Axios from 'axios'
+import repository from './api/repository'
 
 Vue.use(Vuex)
 
@@ -31,11 +31,14 @@ const store = new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         // eslint-disable-next-line standard/object-curly-even-spacing
-        Axios({url: 'http://localhost:8000/token', data: user, method: 'POST' })
+        let form = new FormData()
+        form.set('username', user.email)
+        form.set('password', user.password)
+        repository.post('/token', form)
           .then(resp => {
             const token = resp.data.token
             localStorage.setItem('token', token)
-            Axios.defaults.headers.common['Authorization'] = token
+            repository.defaults.headers.common['Authorization'] = token
             commit('auth_success', token)
             resolve(resp)
           })
@@ -51,7 +54,7 @@ const store = new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('logout')
         localStorage.removeItem('token')
-        delete Axios.defaults.headers.common['Authorization']
+        delete repository.defaults.headers.common['Authorization']
         resolve()
       })
     },
@@ -60,12 +63,12 @@ const store = new Vuex.Store({
       return new Promise((resolve, reject) => {
         commit('auth_request')
         // eslint-disable-next-line standard/object-curly-even-spacing
-        Axios({url: 'http://localhost:8000/register', data: user, method: 'POST' })
+        repository.post('/register', user)
           .then(resp => {
             const token = resp.data.token
             const user = resp.data.user
             localStorage.setItem('token', token)
-            Axios.defaults.headers.common['Authorization'] = token
+            repository.defaults.headers.common['Authorization'] = token
             commit('auth_success', token, user)
             resolve(resp)
           })

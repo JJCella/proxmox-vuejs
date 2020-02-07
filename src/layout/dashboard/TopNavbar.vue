@@ -29,14 +29,12 @@
             <a class="dropdown-item" href="#">Notification 4</a>
             <a class="dropdown-item" href="#">Another notification</a>
           </drop-down>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="ti-settings"></i>
-              <p>
-                Settings
-              </p>
-            </a>
-          </li>
+          <drop-down class="nav-item"
+                     title="Settings"
+                     title-classes="nav-link"
+                     icon="ti-settings">
+            <a class="dropdown-item" href="#"><router-link to="/logout">Logout</router-link></a>
+          </drop-down>
         </ul>
       </div>
     </div></nav>

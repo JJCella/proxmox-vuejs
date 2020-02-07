@@ -7,8 +7,11 @@ import router from './router'
 import store from './store.js'
 import PaperDashboard from './plugins/paperDashboard'
 import 'vue-notifyjs/themes/default.css'
+import Vuelidate from 'vuelidate'
 
 Vue.use(PaperDashboard)
+
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = Axios

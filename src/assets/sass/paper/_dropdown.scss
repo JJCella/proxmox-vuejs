@@ -6,6 +6,7 @@
     display: block;
     margin-top: 10px;
     padding: 0px;
+    min-width: 0px;
     position: absolute;
     visibility: hidden;
     z-index: 1000;
@@ -13,7 +14,7 @@
     @include opacity(0);
     @include box-shadow($dropdown-shadow);
 
-    .divider{
+    .divider{min-width: 0px;
       background-color: $medium-pale-bg;
       margin: 0px;
     }

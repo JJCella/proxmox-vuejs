@@ -4,18 +4,36 @@
       <form @submit.prevent="auth">
         <h2 class="sr-only">Login Form</h2>
         <div class="illustration"><ion-icon name="lock-closed-outline"></ion-icon></div>
-        <div class="form-group"><input v-model="login.email" class="form-control" type="email" name="email" placeholder="Email"></div>
-        <div class="form-group"><input v-model="login.password" class="form-control" type="password" name="password" placeholder="Password"></div>
-        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a></form>
+
+        <div class="form-group" :class="{ 'form-group--error': $v.login.email.$error }">
+          <input v-model.trim.lazy="$v.login.email.$model" class="form-control" name="email" placeholder="Email">
+        </div>
+        <div v-if="$v.login.email.$dirty">
+          <div class="error" v-if="!$v.login.email.email">Please enter a valid email address.</div>
+          <div class="error" v-if="!$v.login.email.required">Email is required.</div>
+        </div>
+
+        <div class="form-group" :class="{ 'form-group--error': $v.login.password.$error }">
+          <input v-model.trim.lazy="$v.login.password.$model" class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div v-if="$v.login.password.$dirty">
+          <div class="error" v-if="!$v.login.password.required">Password is required.</div>
+        </div>
+        <p v-if="error">
+          <div>{{ error }}</div>
+        </p>
+        <div class="form-group"><button class="btn btn-primary btn-block" :disabled="$v.$invalid" type="submit">Log In</button></div><a href="#" class="forgot">Forgot your email or password?</a></form>
     </div>
   </div>
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
 export default {
   name: 'App',
   data () {
     return {
+      error: null,
       loading: false,
       login: {
         email: '',
@@ -29,12 +47,23 @@ export default {
       let password = this.login.password
       this.$store.dispatch('login', { email, password })
         .then(() => this.$router.push('/'))
-        .catch(err => console.log(err))
-      /*
+        .catch(err => Object.assign(this.error, err.response.data.detail))
+
       this.loading = true
       setTimeout(() => {
         this.loading = false
-      }, 5000)  */
+      }, 5000)
+    }
+  },
+  validations: {
+    login: {
+      email: {
+        required,
+        email
+      },
+      password: {
+        required
+      }
     }
   }
 }
