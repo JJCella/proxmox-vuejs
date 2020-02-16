@@ -3,7 +3,7 @@
       <div class="justify-content-center login-dark">
         <form @submit.prevent="auth">
           <h2 class="sr-only">Login Form</h2>
-          <div class="illustration"><ion-icon name="lock-closed-outline"></ion-icon></div>
+          <div class="illustration"> <i class="ti-lock"></i></div>
 
           <div class="form-group" :class="{ 'form-group--error': $v.login.email.$error }">
             <input v-model.trim.lazy="$v.login.email.$model" class="form-control" name="email" placeholder="Email">
@@ -29,19 +29,19 @@
             </button>
           </div><a href="#" class="forgot">Forgot your email or password?</a></form>
       </div>
-    <div class="position-absolute fixed-top ind" style="z-index: -1">
+    <div class="position-absolute fixed-top overflow-hidden" style="height: 100%; z-index: -1; background-color:#444e59;">
       <vue-particles
-        color="#000000"
+        color="#ffffff"
         :particleOpacity="0.7"
-        :particlesNumber="80"
+        :particlesNumber="150"
         shapeType="circle"
         :particleSize="4"
-        linesColor="#000000"
+        linesColor="#ffffff"
         :linesWidth="1"
         :lineLinked="true"
         :lineOpacity="0.4"
         :linesDistance="150"
-        :moveSpeed="3"
+        :moveSpeed="2"
         :hoverEffect="true"
         hoverMode="grab"
         :clickEffect="true"
@@ -106,11 +106,11 @@ export default {
   }
 
   .login-dark form {
-    background-color:#1e2833;
+    background-color: rgba(30, 40, 51, 0.95);
     padding:40px;
     border-radius:20px;
     color:#fff;
-    box-shadow:5px 5px 5px rgba(0,0,0,0.2);
+    box-shadow:10px 10px 10px rgba(0,0,0,0.4);
   }
 
   .login-dark .illustration {
