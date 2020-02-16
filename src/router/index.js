@@ -8,7 +8,6 @@ import Dashboard from '../pages/Dashboard'
 import DashboardLayout from '../layout/dashboard/DashboardLayout'
 import UserProfile from '../pages/UserProfile'
 import Instances from '../pages/Instances'
-import Notifications from '../pages/Notifications'
 import Instance from '../pages/Instance'
 import Access from '../pages/Instance/Access'
 import Power from '../pages/Instance/Power'
@@ -72,11 +71,6 @@ const router = new Router({
           path: 'stats',
           name: 'stats',
           component: UserProfile
-        },
-        {
-          path: 'notifications',
-          name: 'notifications',
-          component: Notifications
         },
         {
           path: 'new',

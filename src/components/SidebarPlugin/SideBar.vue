@@ -2,11 +2,6 @@
   <div class="sidebar"
        :data-background-color="backgroundColor"
        :data-active-color="activeColor">
-    <!--
-            Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black | darkblue"
-            Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-        -->
-    <!-- -->
     <div class="sidebar-wrapper" id="style-3">
       <div class="logo">
         <a href="#" class="simple-text">
@@ -20,7 +15,6 @@
 
       </slot>
       <ul class="nav">
-        <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
         <slot name="links">
           <sidebar-link v-for="(link,index) in sidebarLinks"
                         :key="index"
@@ -49,7 +43,7 @@ export default {
       type: String,
       default: 'black',
       validator: value => {
-        let acceptedValues = ['white', 'black', 'darkblue']
+        const acceptedValues = ['white', 'black', 'darkblue']
         return acceptedValues.indexOf(value) !== -1
       }
     },
@@ -57,7 +51,7 @@ export default {
       type: String,
       default: 'success',
       validator: value => {
-        let acceptedValues = [
+        const acceptedValues = [
           'primary',
           'info',
           'success',

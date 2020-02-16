@@ -11,7 +11,7 @@ const SidebarStore = {
 
 const SidebarPlugin = {
   install (Vue) {
-    let app = new Vue({
+    const app = new Vue({
       data: {
         sidebarStore: SidebarStore
       }

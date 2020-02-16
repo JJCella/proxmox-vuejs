@@ -9,7 +9,7 @@ import StatsCard from './Cards/StatsCard.vue'
 
 import SidebarPlugin from './SidebarPlugin/index'
 
-let components = {
+const components = {
   FormGroupInput,
   Card,
   ChartCard,

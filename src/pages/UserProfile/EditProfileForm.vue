@@ -116,7 +116,7 @@ export default {
         address: 'Somewhere',
         city: 'Somewhere',
         postalCode: '',
-        aboutMe: `Bruh`
+        aboutMe: 'Bruh'
       }
     }
   },

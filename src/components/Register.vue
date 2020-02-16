@@ -43,7 +43,7 @@ export default {
 
   methods: {
     register: function () {
-      let data = {
+      const data = {
         name: this.name,
         email: this.email,
         password: this.password,

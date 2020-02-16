@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {RepositoryFactory} from '../../api/RepositoryFactory'
+import { RepositoryFactory } from '../../api/RepositoryFactory'
 
 const InstancesRepository = RepositoryFactory.get('instances')
 export default {

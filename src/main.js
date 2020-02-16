@@ -3,7 +3,6 @@ import App from './App'
 import router from './router'
 import store from './store.js'
 import PaperDashboard from './plugins/paperDashboard'
-import 'vue-notifyjs/themes/default.css'
 import Vuelidate from 'vuelidate'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -29,7 +28,7 @@ Vue.config.productionTip = false
 
 const token = localStorage.getItem('token')
 if (token) {
-  repository.defaults.headers.common['Authorization'] = token
+  repository.defaults.headers.common.Authorization = token
 }
 
 /* eslint-disable no-new */

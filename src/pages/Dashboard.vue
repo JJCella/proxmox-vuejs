@@ -48,7 +48,7 @@ export default {
   },
   data () {
     return {
-      stats: { 'instances': 0 },
+      stats: { instances: 0 },
       statsCards: [
         {
           type: 'warning',
@@ -126,7 +126,7 @@ export default {
       return this.stats[stat] || 'N/A'
     },
     async fetch () {
-      const {data} = await InstancesRepository.getStats()
+      const { data } = await InstancesRepository.getStats()
       this.stats = data
     }
   }

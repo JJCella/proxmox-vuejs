@@ -27,18 +27,18 @@ const store = new Vuex.Store({
   },
   actions: {
 
-    login ({commit}, user) {
+    login ({ commit }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         // eslint-disable-next-line standard/object-curly-even-spacing
-        let form = new FormData()
+        const form = new FormData()
         form.set('username', user.email)
         form.set('password', user.password)
         repository.post('/token', form)
           .then(resp => {
             const token = 'Bearer ' + resp.data.access_token
             localStorage.setItem('token', token)
-            repository.defaults.headers.common['Authorization'] = token
+            repository.defaults.headers.common.Authorization = token
             commit('auth_success', token)
             resolve(resp)
           })
@@ -50,16 +50,16 @@ const store = new Vuex.Store({
       })
     },
 
-    logout ({commit}) {
+    logout ({ commit }) {
       return new Promise((resolve, reject) => {
         commit('logout')
         localStorage.removeItem('token')
-        delete repository.defaults.headers.common['Authorization']
+        delete repository.defaults.headers.common.Authorization
         resolve()
       })
     },
 
-    register ({commit}, user) {
+    register ({ commit }, user) {
       return new Promise((resolve, reject) => {
         commit('auth_request')
         // eslint-disable-next-line standard/object-curly-even-spacing
@@ -68,7 +68,7 @@ const store = new Vuex.Store({
             const token = resp.data.token
             const user = resp.data.user
             localStorage.setItem('token', token)
-            repository.defaults.headers.common['Authorization'] = token
+            repository.defaults.headers.common.Authorization = token
             commit('auth_success', token, user)
             resolve(resp)
           })

@@ -67,8 +67,8 @@ export default {
   },
   methods: {
     auth: function () {
-      let email = this.login.email
-      let password = this.login.password
+      const email = this.login.email
+      const password = this.login.password
       this.loading = true
       this.$store.dispatch('login', { email, password })
         .then(() => this.$router.push('/'))

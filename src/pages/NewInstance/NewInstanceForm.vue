@@ -102,7 +102,7 @@
   </card>
 </template>
 <script>
-import {RepositoryFactory} from '../../api/RepositoryFactory'
+import { RepositoryFactory } from '../../api/RepositoryFactory'
 import router from '../../router'
 // eslint-disable-next-line no-unused-vars
 const InstancesRepository = RepositoryFactory.get('instances')

@@ -6,7 +6,6 @@
         <sidebar-link to="/stats" name="User Profile" icon="ti-user"/>
         <sidebar-link to="/instances" name="Instances" icon="ti-view-list-alt"/>
         <sidebar-link to="/new" name="New" icon="ti-pencil-alt2"/>
-        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
       </template>
       <mobile-menu>
         <li class="nav-item">
