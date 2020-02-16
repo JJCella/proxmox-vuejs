@@ -105,27 +105,32 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       user: {
-        company: "Paper Dashboard",
-        username: "michael23",
-        email: "",
-        firstName: "Chet",
-        lastName: "Faker",
-        address: "Melbourne, Australia",
-        city: "Melbourne",
-        postalCode: "",
-        aboutMe: `We must accept finite disappointment, but hold on to infinite hope.`
+        company: 'Polytech ANGERS',
+        username: 'jayremy',
+        email: 'jayremy120@gmail.com',
+        firstName: 'Jérémy',
+        lastName: 'CELLA',
+        address: 'Somewhere',
+        city: 'Somewhere',
+        postalCode: '',
+        aboutMe: `Bruh`
       }
-    };
+    }
   },
   methods: {
-    updateProfile() {
-      alert("Your data: " + JSON.stringify(this.user));
+    updateProfile () {
+      this.$swal.fire({
+        title: 'Success!',
+        text: 'Your profile has been created',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      })
     }
   }
-};
+}
 </script>
 <style>
 </style>

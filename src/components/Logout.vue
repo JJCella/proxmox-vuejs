@@ -6,7 +6,7 @@
 export default {
   name: 'Logout',
 
-  created: function () {
+  mounted: function () {
     this.logout()
   },
 

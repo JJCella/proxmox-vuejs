@@ -1,24 +1,35 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import Axios from 'axios'
 import router from './router'
 import store from './store.js'
 import PaperDashboard from './plugins/paperDashboard'
 import 'vue-notifyjs/themes/default.css'
 import Vuelidate from 'vuelidate'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import repository from './api/repository'
+import vueFilterPrettyBytes from 'vue-filter-pretty-bytes'
+import ToggleButton from 'vue-js-toggle-button'
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+import VueParticles from 'vue-particles'
 
+Vue.use(VueParticles)
+Vue.use(VueSweetalert2)
 Vue.use(PaperDashboard)
-
 Vue.use(Vuelidate)
+Vue.use(vueFilterPrettyBytes)
+Vue.use(ToggleButton)
 
+library.add(fas)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
-Vue.prototype.$http = Axios
 
 const token = localStorage.getItem('token')
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+  repository.defaults.headers.common['Authorization'] = token
 }
 
 /* eslint-disable no-new */

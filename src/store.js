@@ -36,7 +36,7 @@ const store = new Vuex.Store({
         form.set('password', user.password)
         repository.post('/token', form)
           .then(resp => {
-            const token = resp.data.token
+            const token = 'Bearer ' + resp.data.access_token
             localStorage.setItem('token', token)
             repository.defaults.headers.common['Authorization'] = token
             commit('auth_success', token)

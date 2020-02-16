@@ -30,43 +30,43 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
-      title: "Team members",
+      title: 'Team members',
       members: [
         {
-          image: require("@/assets/img/faces/face-0.jpg"),
-          name: "Dj Khaled",
-          status: "Offline"
+          image: require('@/assets/img/faces/face-0.jpg'),
+          name: 'Antoine',
+          status: 'Offline'
         },
         {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Creative Tim",
-          status: "Available"
+          image: require('@/assets/img/faces/face-1.jpg'),
+          name: 'Clément',
+          status: 'Available'
         },
         {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Flume",
-          status: "Busy"
+          image: require('@/assets/img/faces/face-1.jpg'),
+          name: 'Malo',
+          status: 'Busy'
         }
       ]
-    };
+    }
   },
   methods: {
-    getStatusClass(status) {
+    getStatusClass (status) {
       switch (status) {
-        case "Offline":
-          return "text-muted";
-        case "Available":
-          return "text-success";
-        case "Busy":
-          return "text-danger";
+        case 'Offline':
+          return 'text-muted'
+        case 'Available':
+          return 'text-success'
+        case 'Busy':
+          return 'text-danger'
         default:
-          return "text-success";
+          return 'text-success'
       }
     }
   }
-};
+}
 </script>
 <style>
 </style>

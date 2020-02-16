@@ -33,7 +33,7 @@
                      title="Settings"
                      title-classes="nav-link"
                      icon="ti-settings">
-            <a class="dropdown-item" href="#"><router-link to="/logout">Logout</router-link></a>
+            <a class="dropdown-item"><router-link to="/logout">Logout</router-link></a>
           </drop-down>
         </ul>
       </div>

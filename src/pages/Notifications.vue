@@ -86,30 +86,30 @@
   </card>
 </template>
 <script>
-import NotificationTemplate from './Notifications/NotificationTemplate';
+import NotificationTemplate from './Notifications/NotificationTemplate'
 
 export default {
-  data() {
+  data () {
     return {
-      type: ["", "info", "success", "warning", "danger"],
+      type: ['', 'info', 'success', 'warning', 'danger'],
       notifications: {
         topCenter: false
       }
-    };
+    }
   },
   methods: {
-    notifyVue(verticalAlign, horizontalAlign) {
-      const color = Math.floor(Math.random() * 4 + 1);
+    notifyVue (verticalAlign, horizontalAlign) {
+      const color = Math.floor(Math.random() * 4 + 1)
       this.$notify({
         component: NotificationTemplate,
-        icon: "ti-gift",
+        icon: 'ti-gift',
         horizontalAlign: horizontalAlign,
         verticalAlign: verticalAlign,
         type: this.type[color]
-      });
+      })
     }
   }
-};
+}
 </script>
 <style>
 </style>
