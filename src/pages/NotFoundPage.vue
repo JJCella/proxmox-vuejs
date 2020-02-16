@@ -1,19 +1,10 @@
 <template>
   <div class="contact-us full-screen">
-    <nav class="navbar navbar-ct-default" role="navigation-demo">
+    <nav class="navbar navbar-ct-default">
       <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <router-link :to="{path:'/'}" class="navbar-brand">Site title</router-link>
+          <router-link :to="{path:'/'}" class="navbar-brand">PolyInstances</router-link>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation-example-2">
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -21,15 +12,13 @@
             </li>
           </ul>
         </div>
-        <!-- /.navbar-collapse -->
       </div>
-      <!-- /.container-->
     </nav>
     <div class="wrapper wrapper-full-page section content">
       <div class="">
         <div class="container">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="col-md-12 text-center">
               <h2 class="title text-danger">404 Not Found</h2>
               <h2 class="title">Oops! It seems that this page does not exist.</h2>
             </div>

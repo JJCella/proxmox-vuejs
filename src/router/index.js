@@ -15,6 +15,7 @@ import Networking from '../pages/Instance/Networking'
 import Destroy from '../pages/Instance/Destroy'
 import NewInstance from '../pages/NewInstance'
 import noVNC from '../pages/Instance/noVNC'
+import NotFoundPage from '../pages/NotFoundPage'
 
 Vue.use(Router)
 
@@ -98,6 +99,11 @@ const router = new Router({
       path: '/logout',
       name: 'logout',
       component: Logout
+    },
+    {
+      path: '*',
+      name: 'logout',
+      component: NotFoundPage
     }
   ]
 })
