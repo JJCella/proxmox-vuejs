@@ -1,5 +1,6 @@
 <template>
   <div>
+    <LoadingCircleFull ref="loading"></LoadingCircleFull>
     <div class="row card">
       <div class="col-12">
         <div class="table-cell">
@@ -48,10 +49,14 @@
 
 <script>
 import { RepositoryFactory } from '../api/RepositoryFactory'
-
+import LoadingCircleFull from '../components/LoadingCircleFull'
 const InstancesRepository = RepositoryFactory.get('instances')
+
 export default {
   name: 'Instance',
+  components: {
+    LoadingCircleFull
+  },
   data: function () {
     return {
       id: this.$route.params.id,
@@ -65,7 +70,7 @@ export default {
       return false
     }
   },
-  created () {
+  mounted () {
     this.fetch()
     this.timer = setInterval(this.fetch, 15000)
   },
@@ -84,6 +89,7 @@ export default {
     },
 
     async change (value, srcEvent) {
+      this.$refs.loading.start(2000)
       if (value.value) {
         await InstancesRepository.changeInstanceStatus(this.id, 'start')
       } else {

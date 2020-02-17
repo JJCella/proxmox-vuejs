@@ -1,5 +1,6 @@
 <template>
   <card class="card" title="New Instance">
+    <LoadingCircleFull ref="loading"></LoadingCircleFull>
     <div>
       <form @submit.prevent>
         <div class="row">
