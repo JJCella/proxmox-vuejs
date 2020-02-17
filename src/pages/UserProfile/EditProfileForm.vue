@@ -124,7 +124,7 @@ export default {
     updateProfile () {
       this.$swal.fire({
         title: 'Success!',
-        text: 'Your profile has been created',
+        text: 'Your profile has been updated',
         icon: 'success',
         confirmButtonText: 'Cool'
       })

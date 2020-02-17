@@ -9,6 +9,10 @@
           <div>
             <div class="author">
               <img class="avatar border-white" src="@/assets/img/debian_logo.png" alt="...">
+              <h3>
+                <span v-if='isRunning(instance)' class="badge badge-pill badge-success">ON</span>
+                <span v-else class="badge badge-pill badge-danger">OFF</span>
+              </h3>
               <h4 class="title"> {{ instance.name }} | {{ instance.image ||  'Debian 10' }}
                 <br>
                 <a href="#">
@@ -80,6 +84,10 @@ export default {
     async fetch () {
       const { data } = await InstancesRepository.get()
       this.table.data = data
+    },
+    isRunning: function (instance) {
+      if (instance.status === 'running') { return true }
+      return false
     }
   }
 }

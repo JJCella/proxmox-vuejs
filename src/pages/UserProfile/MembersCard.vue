@@ -36,17 +36,17 @@ export default {
       members: [
         {
           image: require('@/assets/img/faces/face-0.jpg'),
-          name: 'Antoine',
+          name: '--',
           status: 'Offline'
         },
         {
           image: require('@/assets/img/faces/face-1.jpg'),
-          name: 'Clément',
+          name: '--',
           status: 'Available'
         },
         {
           image: require('@/assets/img/faces/face-1.jpg'),
-          name: 'Malo',
+          name: '--',
           status: 'Busy'
         }
       ]
